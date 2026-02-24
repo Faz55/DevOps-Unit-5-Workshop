@@ -15,6 +15,12 @@ jobs:
       with:                                            # This section is needed if you need to pass arguments to the action
         who-to-greet: 'Mona the Octocat'
     
+          # setup .NET
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with: 
+        dotnet-version: '10.0.x'
+
       # buld code
     - name: Build C# code
       run: dotnet build
@@ -23,13 +29,24 @@ jobs:
     - name: Run C# test
       run: dotnet test
 
-      # setup .NET
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with: 
-        dotnet-version: '10.0.x'
-
       # Install npm
     - name: install NPM
       run: npm install
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build TypeScript code
+      run: npm run build
+
+    - name: Run TypeScript linter
+      run: npm run lint
+
+    - name: Run TypeScript tests
+      run: npm test
