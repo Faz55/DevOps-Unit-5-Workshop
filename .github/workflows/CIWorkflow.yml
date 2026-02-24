@@ -6,7 +6,9 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
-    - uses: actions/checkout@v4 # Adds a step to checkout the repository code
+    
+    - name: Checkout code
+      uses: actions/checkout@v4 # Adds a step to checkout the repository code
     
     - name: Hello world       # Name of step
       uses: actions/hello-world-javascript-action@v1.1 # Name of the action. This uses https://github.com/actions/hello-world-javascript-action
