@@ -36,12 +36,15 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
       working-directory: ./DotnetTemplate.Web
-      
+
     - name: Build TypeScript code
       run: npm run build
+      working-directory: ./DotnetTemplate.Web
 
     - name: Run TypeScript linter
       run: npm run lint
+      working-directory: ./DotnetTemplate.Web
 
     - name: Run TypeScript tests
       run: npm test
+      working-directory: ./DotnetTemplate.Web
