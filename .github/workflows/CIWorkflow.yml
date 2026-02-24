@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4 # Adds a step to checkout the repository code
-      
+
      # setups
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -31,6 +31,7 @@ jobs:
       # Install npm
     - name: install NPM
       run: npm install
+      working-directory: ./DotnetTemplate.Web
 
     - name: Install NPM dependencies
       run: npm install
