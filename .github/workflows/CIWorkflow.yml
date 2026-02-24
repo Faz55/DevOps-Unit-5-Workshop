@@ -15,5 +15,15 @@ jobs:
       with:                                            # This section is needed if you need to pass arguments to the action
         who-to-greet: 'Mona the Octocat'
     
+      # buld code
     - name: Build C# code
       run: dotnet build
+        
+      # run test
+    - name: Run C# test
+      run: dotnet test
+
+      # Install npm
+    - name: install NPM
+      run: npm install
+
